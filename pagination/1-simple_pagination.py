@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-import csv
-from typing import List
 """
     We use that function for creating pagination main variables
     start we use for found out when the data starts
     end for find out when we have to stop show our data
 """
+import csv
+from typing import List
 
 
 def index_range(page=1, page_size=10):
