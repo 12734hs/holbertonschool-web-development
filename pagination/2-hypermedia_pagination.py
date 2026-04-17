@@ -8,6 +8,7 @@ import csv
 import math
 from typing import List, Dict, Union
 
+
 def index_range(page=1, page_size=10):
     """
     We use that function for creating pagination main variables
@@ -54,8 +55,9 @@ class Server:
         except IndexError:
             return []
 
+    cond = Dict[str, Union[str, int, None, object]]
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict[str, Union[str, int, None, object]]:
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> cond:
         """
             We use that function for getting information which we could need
         """
