@@ -6,7 +6,7 @@
 """
 import csv
 import math
-from typing import List, Dict
+from typing import List, Dict, Union
 
 def index_range(page=1, page_size=10):
     """
@@ -55,7 +55,7 @@ class Server:
             return []
 
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict[str, str | int | None | object]:
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict[str, Union[str, int, None, object]]:
         """
             We use that function for getting information which we could need
         """
