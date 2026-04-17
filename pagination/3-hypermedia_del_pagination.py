@@ -38,7 +38,9 @@ class Server:
             }
         return self.__indexed_dataset
 
-    def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict[int, object]:
+    b = Dict[int, object]
+
+    def get_hyper_index(self, index: int = None, page_size: int = 10) -> b:
         """
         We use this method for give some information about this stuff
         """
@@ -59,4 +61,7 @@ class Server:
 
         next_index = current_idx if current_idx < len(all_data) else None
 
-        return {'index': index, 'data': data, 'page_size': len(data), 'next_index': next_index}
+        return {'index': index,
+                'data': data,
+                'page_size': len(data),
+                'next_index': next_index}
