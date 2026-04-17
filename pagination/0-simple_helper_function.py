@@ -3,6 +3,7 @@
 We created that file for create the function for pagination
 """
 
+
 def index_range(page=1, page_size=10):
     """
     We use that function for creating pagination main variables
