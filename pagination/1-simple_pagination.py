@@ -2,6 +2,9 @@
 import csv
 import math
 from typing import List
+"""
+THis module is about the basix pagination function BITCH
+"""
 
 
 def index_range(page=1, page_size=10):
