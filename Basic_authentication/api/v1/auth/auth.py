@@ -8,7 +8,12 @@ class Auth:
     """We gonna use that class for auth goals"""
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         """This funct is require the auth"""
-        return False
+        if path is None or (excluded_paths is None or []):
+            return True
+        normalized_path = path if path.endswith('/') else path + '/'
+        if normalized_path in excluded_paths:
+            return False
+        return True
 
     def authorization_header(self, request=None) -> str:
         """This funct is auto header"""
