@@ -25,21 +25,21 @@ elif auth_type == 'basic_auth':
 
 
 @app.errorhandler(404)
-def not_found(error) -> str:
+def not_found(error) -> tuple:
     """ Not found handler
     """
     return jsonify({"error": "Not found"}), 404
 
 
 @app.errorhandler(401)
-def unauthorized(error) -> str:
+def unauthorized(error) -> tuple:
     """ Unauthorized user
     """
     return jsonify({"error": "Unauthorized"}), 401
 
 
 @app.errorhandler(403)
-def forbidden(error) -> str:
+def forbidden(error) -> tuple:
     """User which is Forbidden, usually because of the country
     """
     return jsonify({"error": "Forbidden"}), 403

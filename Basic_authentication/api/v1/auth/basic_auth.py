@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """This is documentation for the file"""
 from api.v1.auth.auth import Auth
+from typing import TypeVar
+from models.user import User
 
 
 class BasicAuth(Auth):
@@ -44,3 +46,24 @@ class BasicAuth(Auth):
             return a, b
         a, b = decoded_base64_authorization_header.split(':')
         return a, b
+
+    def user_object_from_credentials(
+            self, user_email: str, user_pwd: str) -> TypeVar('User'):
+        """This is the method which helps us find out is the
+        user already signed up here or not"""
+        if user_email is None or isinstance(user_email, str):
+            return None
+        if user_pwd is None or isinstance(user_pwd, str):
+            return None
+        try:
+            users = User.search({'user_email': user_email})
+        except Exception:
+            return None
+
+        if not users:
+            return None
+
+        for i in users:
+            if i.is_valid_password(user_pwd):
+                return i
+        return None
