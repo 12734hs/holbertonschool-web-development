@@ -7,10 +7,25 @@ class BasicAuth(Auth):
     """This is basic auth documented class baby"""
     def extract_base64_authorization_header(self,
                                             authorization_header: str) -> str:
-        """We will use this method for taking basic from the header"""
+        """This is a method we use for takuing the code"""
         if (authorization_header is None or
                 type(authorization_header) is not str):
             return None
         if authorization_header[:6] != "Basic ":
             return None
         return authorization_header[6:]
+
+    def decode_base64_authorization_header(
+            self, base64_authorization_header: str) -> str:
+        """This is a method which we use for decode the header"""
+        if base64_authorization_header is None:
+            return None
+        if isinstance(base64_authorization_header, str):
+            return None
+        try:
+            import base64
+            decoded_bytes = base64.b64decode(
+                base64_authorization_header, validate=True)
+            return decoded_bytes.decode("utf-8")
+        except Exception:
+            return None
