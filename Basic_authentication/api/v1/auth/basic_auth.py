@@ -34,11 +34,13 @@ class BasicAuth(Auth):
             self, decoded_base64_authorization_header: str) -> (str, str):
         """This is the method which can explore us the data which
         was included in this special code"""
+        a = None
+        b = None
         if decoded_base64_authorization_header is None:
-            return None
+            return a, b
         if not isinstance(decoded_base64_authorization_header, str):
-            return None
+            return a, b
         if ':' not in decoded_base64_authorization_header:
-            return None
+            return a, b
         a, b = decoded_base64_authorization_header.split(':')
         return a, b
