@@ -20,7 +20,7 @@ class BasicAuth(Auth):
         """This is a method which we use for decode the header"""
         if base64_authorization_header is None:
             return None
-        if isinstance(base64_authorization_header, str):
+        if not isinstance(base64_authorization_header, str):
             return None
         try:
             import base64
