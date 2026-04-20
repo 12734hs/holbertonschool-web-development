@@ -18,7 +18,7 @@ class Auth:
     def authorization_header(self, request=None) -> str:
         """This funct is auto header"""
         auth = request.headers.get('Authorization')
-        if request or auth:
+        if request is None:
             return None
         return auth
 
