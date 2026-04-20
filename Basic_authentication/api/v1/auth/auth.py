@@ -17,7 +17,10 @@ class Auth:
 
     def authorization_header(self, request=None) -> str:
         """This funct is auto header"""
-        return None
+        auth = request.headers.get('Authorization')
+        if request or auth:
+            return None
+        return auth
 
     def current_user(self, request=None) -> TypeVar('User'):
         """This funct is checking current user"""
