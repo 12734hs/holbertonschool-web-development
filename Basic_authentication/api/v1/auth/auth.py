@@ -1,7 +1,8 @@
-#!/usr/env/bin python
+#!/usr/bin/env python3
 """This file we use for create auth funct in our app"""
 from flask import request
 from typing import List, TypeVar
+
 
 class Auth:
     """We gonna use that class for auth goals"""
