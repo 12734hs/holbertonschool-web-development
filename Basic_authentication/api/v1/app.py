@@ -41,6 +41,7 @@ def forbidden(error) -> str:
     """
     return jsonify({"error": "Forbidden"}), 403
 
+
 @app.before_request
 def before_request():
     """Special checker which check the situation for our user"""
@@ -53,6 +54,7 @@ def before_request():
         abort(401)
     if auth.current_user(request) is None:
         abort(403)
+
 
 if __name__ == "__main__":
     host = getenv("API_HOST", "0.0.0.0")
