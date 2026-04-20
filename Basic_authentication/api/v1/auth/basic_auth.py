@@ -9,7 +9,6 @@ class BasicAuth(Auth):
         """We will use this method for taking basic from the header"""
         if authorization_header is None or type(authorization_header) is not str:
             return None
-        lst = authorization_header.split(' ')
-        if lst[0] is not 'Basic':
+        if authorization_header[:6] != "Basic ":
             return None
-        return lst[1]
+        return authorization_header[6:]
