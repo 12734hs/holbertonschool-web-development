@@ -49,13 +49,15 @@ def forbidden(error) -> tuple:
 def before_request():
     """Special checker which check the situation for our user"""
     paths = ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']
-    user = auth.current_user(request)
     if auth is None:
         return
     if not auth.require_auth(request.path, paths):
         return
     if auth.authorization_header(request) is None:
         abort(401)
+
+    user = auth.current_user(request)
+
     if user is None:
         abort(403)
 
