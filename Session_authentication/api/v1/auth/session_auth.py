@@ -14,8 +14,8 @@ class SessionAuth(Auth):
             return None
 
         session_code = uuid4()
-        self.user_id_by_session_id[session_code] = user_id
-        return session_code
+        self.user_id_by_session_id[str(session_code)] = user_id
+        return str(session_code)
 
     def user_id_for_session_id(self, session_id: str = None) -> str:
         """We us ethis method for find user by his session"""
