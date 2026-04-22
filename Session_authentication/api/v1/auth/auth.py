@@ -2,7 +2,7 @@
 """This file we use for create auth funct in our app"""
 from flask import request
 from typing import List, TypeVar
-
+from os import getenv
 
 class Auth:
     """We gonna use that class for auth goals"""
@@ -24,3 +24,12 @@ class Auth:
     def current_user(self, request=None) -> TypeVar('User'):
         """This funct is checking current user"""
         return None
+
+    def session_cookie(self, request=None):
+        """This is the method for getting cookie"""
+        if request is None:
+            return None
+
+        cookie = getenv('SESSION_NAME')
+
+        return request.cookies.get(cookie)
