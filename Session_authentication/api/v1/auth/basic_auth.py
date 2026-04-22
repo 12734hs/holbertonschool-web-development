@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """This is documentation for the file"""
 from api.v1.auth.auth import Auth
+from typing import TypeVar
 
 
 class BasicAuth(Auth):
