@@ -50,7 +50,8 @@ def forbidden(error) -> tuple:
 @app.before_request
 def before_request():
     """Special checker which check the situation for our user"""
-    paths = ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/', '/api/v1/auth_session/login/']
+    paths = ['/api/v1/status/', '/api/v1/unauthorized/',
+             '/api/v1/forbidden/', '/api/v1/auth_session/login/']
     if auth is None:
         return
     if not auth.require_auth(request.path, paths):
