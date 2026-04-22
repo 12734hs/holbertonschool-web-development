@@ -2,7 +2,7 @@
 """It is a documentation for this file"""
 from api.v1.auth.auth import Auth
 from uuid import uuid4
-
+from models.user import User
 
 class SessionAuth(Auth):
     """This class is about session mechanism in flask"""
@@ -23,3 +23,9 @@ class SessionAuth(Auth):
             return None
 
         return self.user_id_by_session_id.get(session_id)
+
+    def current_user(self, request=None):
+        """We use this method for get a user instance"""
+        coks = self.session_cookie(request)
+        id = self.user_id_by_session_id(coks)
+        return User.get(id)

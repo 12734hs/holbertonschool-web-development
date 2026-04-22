@@ -3,7 +3,7 @@
 from flask import request
 from typing import List, TypeVar
 from os import getenv
-
+from api.v1.auth.session_auth import SessionAuth
 
 class Auth:
     """We gonna use that class for auth goals"""
