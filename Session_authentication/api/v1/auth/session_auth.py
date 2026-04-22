@@ -27,5 +27,5 @@ class SessionAuth(Auth):
         """We use this method for get a user instance"""
         from models.user import User
         coks = self.session_cookie(request)
-        id = self.user_id_by_session_id[coks]
+        id = self.user_id_for_session_id(coks)
         return User.get(id)
