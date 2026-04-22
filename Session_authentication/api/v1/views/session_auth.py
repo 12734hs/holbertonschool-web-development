@@ -6,7 +6,8 @@ from api.v1.views import app_views
 from flask import abort, request, jsonify
 import os
 
-@app_views.route('/auth_session/login',methods=['POST'], strict_slashes=True)
+
+@app_views.route('/auth_session/login', methods=['POST'], strict_slashes=True)
 def session_login():
     """Login function"""
     email = request.form.get('email')
