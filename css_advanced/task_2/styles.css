@@ -62,7 +62,9 @@ body {
 /* ----- HEADER ----- */
 
 header {
-  width: 800px;
+  width: 100%;
+  max-width: 1000px;
+  padding: 0 20px;
   margin: 0 auto;
   height: 35px;
   display: flex;
