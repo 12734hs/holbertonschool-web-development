@@ -1091,6 +1091,9 @@
     --footer-padding: 5rem 2rem 1rem;
   }
 
+  footer {
+      padding: var(--footer-padding);
+  }
       .footer .footer-nav,
     .footer .social.nav {
       text-align: center;
