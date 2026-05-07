@@ -857,11 +857,11 @@ textarea:valid:not(:placeholder-shown) {
   transition: width .4s cubic-bezier(0, 0.795, 0, 1);
 }
 
-.form-search:focus input[type=search] {
+.form-search input[type=search]:focus {
   position: relative;
   width: 15rem;
   z-index: 1;
-  border-bottom: .1rem soliv var(--color-grey);
+  border-bottom: .1rem solid var(--color-grey);
   padding: 0;
   cursor: text;
   margin: 0 1rem;
