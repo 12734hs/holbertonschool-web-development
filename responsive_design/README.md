@@ -1,0 +1,1 @@
+HEllo guys, that part is about the responsive design 
