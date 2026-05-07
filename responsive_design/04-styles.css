@@ -294,6 +294,13 @@
       display: none;
       flex: 1;
     }
+
+    .header .nav {
+    flex-direction: column;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+  }
   }
 
   /* Header
@@ -310,13 +317,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-
-  .header .nav {
-    flex-direction: column;
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height .2s ease-out;
   }
 
 
