@@ -1086,18 +1086,18 @@
 
 /* Footer */
 
-  @media screen and (max-width: 767px) {
-      :root {
-          --footer-padding: 5rem 2rem 1rem;
-      }
-
-        .footer .social.nav,
-        .footer .footer-nav {
-          text-align: center;
-        }
-
-      .social.nav li + li,
-      .footer-nav li + li {
-          padding-left: 2rem;
-      }
+@media (max-width: 767px) {
+  :root {
+    --footer-padding: 5rem 2rem 1rem;
   }
+
+  .footer .social.nav,
+  .footer .footer-nav {
+    text-align: center;
+  }
+
+  .social.nav li + li,
+  .footer-nav li + li {
+    padding-left: 2rem;
+  }
+}
