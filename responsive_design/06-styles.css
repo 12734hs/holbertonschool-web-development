@@ -992,35 +992,36 @@
 
   /* menu btn */
 
-  .header .menu-btn {
+    .header .menu-btn {
       display: none;
-  }
+    }
 
-  .menu-btn .navbar-menu:checked {
+    .menu-btn:checked ~ .navbar-menu {
       display: block;
-  }
+    }
 
-  .menu-icon .navicon {
+    .menu-icon {
+      cursor: pointer;
+    }
+
+    .menu-icon .navicon {
       background: transparent;
-  }
+    }
 
-  .menu-icon .navicon::before {
+    .menu-icon .navicon::before {
       transform: rotate(-45deg);
-  }
-
-  .menu-icon .navicon::after {
-      transform: rotate(45deg);
-  }
-
-  .menu-icon .navicon::before::after {
       top: 0;
-  }
+    }
 
-  .menu-btn:checked .navbar-menu .nav {
+    .menu-icon .navicon::after {
+      transform: rotate(45deg);
+      top: 0;
+    }
+
+    .menu-btn:checked ~ .navbar-menu .nav {
       max-height: 100%;
       overflow: inherit;
-  }
-
+    }
   @media screen and (max-width: 767px) {
       :root {
           --header-padding: 2rem 0 0;
