@@ -1091,10 +1091,10 @@
     --footer-padding: 5rem 2rem 1rem;
   }
 
-  .footer .social.nav,
-  .footer .footer-nav {
-    text-align: center;
-  }
+      .footer .footer-nav,
+    .footer .social.nav {
+      text-align: center;
+    }
 
   .social.nav li + li,
   .footer-nav li + li {
