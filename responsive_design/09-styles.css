@@ -419,13 +419,9 @@
     fill: var(--text-color);
   }
 
-    @media (max-width: 767px) {
+    @media screen and (max-width: 767px) {
     :root {
       --footer-padding: 5rem 2rem 1rem;
-    }
-
-    footer {
-      padding: var(--footer-padding);
     }
 
     .footer .social.nav,
