@@ -428,10 +428,11 @@
     .footer .footer-nav {
       text-align: center;
     }
-
-    .footer .footer-nav li + li,
-    .footer .social.nav li + li {
+  
+    .footer .social.nav li + li,
+    .footer .footer-nav li + li {
       padding-left: 2rem;
+    }
     }
   }
 
