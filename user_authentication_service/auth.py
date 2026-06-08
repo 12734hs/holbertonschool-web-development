@@ -2,6 +2,7 @@
 """This file is about auth in our service"""
 import bcrypt
 
+
 def _hash_password(password: str) -> None:
     """method which hashes and convert it to bytes"""
     salt = bcrypt.gensalt()
