@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """THis file is the basic file of our project"""
 import flask
-from flask import Flask, jsonify, request, make_response, abort
+from flask import Flask, jsonify, request, make_response, abort, redirect
 from auth import Auth
 
 AUTH = Auth()
@@ -36,6 +36,16 @@ def session():
     response = make_response(response_payload)
     response.set_cookie("session_id", session_id)
     return response
+
+
+@app.route('/sessions', methods=['DELETE'])
+def logout():
+    ss_id = request.cookies.get('session_id')
+    user = AUTH.get_user_from_session_id(ss_id)
+    if user is None:
+        abort(403)
+    AUTH.destroy_session(ss_id)
+    return redirect('/')
 
 
 if __name__ == "__main__":
