@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """THis file is the basic file of our project"""
 import flask
-from flask import Flask, jsonify, request, make_response
+from flask import Flask, jsonify, request, make_response, abort
 from auth import Auth
 
 AUTH = Auth()
@@ -25,10 +25,10 @@ def users():
 
 @app.route('/sessions', methods=['POST'])
 def session():
-    email = request.get.form('email')
-    password = request.get.form('password')
+    email = request.form.get('email')
+    password = request.form.get('password')
     if not AUTH.valid_login(email=email, password=password):
-        return flask.abort(401)
+        return abort(401)
 
     session_id = AUTH.create_session(email=email)
     response_payload = jsonify({'email': f'{email}', "message": "logged in"})
