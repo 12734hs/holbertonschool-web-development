@@ -46,8 +46,10 @@ class DB:
     def update_user(self, user_id, **kwargs) -> User:
         """THis method updates the user info"""
         user = self.find_user_by(id=user_id)
-        for key, value in kwargs.items():
-            setattr(user, key, value)
-
+        try:
+            for key, value in kwargs.items():
+                setattr(user, key, value)
+        except:
+            raise ValueError
         self._session.commit()
         return user
