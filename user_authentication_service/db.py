@@ -36,7 +36,7 @@ class DB:
 
     def find_user_by(self, **kwargs):
         """Find user def"""
-        user = DB._session.query(User).filter_by(kwargs).first()
+        user = self._session.query(User).filter_by(**kwargs).first()
         if user == InvalidRequestError:
             raise InvalidRequestError
         if user == NoResultFound:
