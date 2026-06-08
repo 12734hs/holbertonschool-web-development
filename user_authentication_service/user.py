@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
-"""
-We created that file for create the function for pagination
-"""
+"""This file is about the base user class """
+from sqlalchemy import String, Column, Integer
+from sqlalchemy.ext.declarative import declarative_base
 
+base = declarative_base()
 
-def index_range(page=1, page_size=10):
-    """
-    We use that function for creating pagination main variables
-    start we use for found out when the data starts
-    end for find out when we have to stop show our data
-    """
-    start = (page - 1) * page_size
-    end = start + page_size
-    return start, end
+class User(base):
+    """This class is about the base user class in DB"""
+    __tablename__ = 'users'
+
+    id = Column(Integer, primary_key=True)
+    email = Column(String, nullable=False)
+    hashed_password = Column(String, nullable=False)
+    session_id = Column(String, nullable=True)
+    reset_token = Column(String, nullable=True)
