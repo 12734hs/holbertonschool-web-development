@@ -45,3 +45,13 @@ class Auth:
         except (NoResultFound, AttributeError):
             return False
         return False
+
+    def create_session(self, email: str) -> str:
+        """This method created a new session id"""
+        user = self._db.find_user_by(email=email)
+        if not user:
+            raise NoResultFound
+        else:
+            ss_id = _generate_uuid()
+            self._db.update_user(user, session_id=ss_id)
+            return str(ss_id)
