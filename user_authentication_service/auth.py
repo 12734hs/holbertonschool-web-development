@@ -53,5 +53,5 @@ class Auth:
             raise NoResultFound
         else:
             ss_id = _generate_uuid()
-            self._db.update_user(user, session_id=ss_id)
+            self._db.update_user(user.id, session_id=ss_id)
             return str(ss_id)
