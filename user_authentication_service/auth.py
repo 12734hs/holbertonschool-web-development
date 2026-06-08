@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """This file is about auth in our service"""
 import uuid
+from uuid import UUID
 
 import bcrypt
 from sqlalchemy.orm.exc import NoResultFound
@@ -16,7 +17,7 @@ def _hash_password(password: str) -> bytes:
     return hashed_password.decode('utf-8')
 
 
-def _generate_uuid():
+def _generate_uuid() -> UUID:
     return uuid.uuid4()
 
 
