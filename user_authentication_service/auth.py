@@ -18,6 +18,8 @@ def _hash_password(password: str) -> bytes:
 
 
 def _generate_uuid() -> str:
+    """We use that for generate id's, which will be used in
+    profiles as primary_key"""
     return str(uuid.uuid4())
 
 
