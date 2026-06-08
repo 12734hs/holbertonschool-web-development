@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """This file is about auth in our service"""
 import bcrypt
+from sqlalchemy.orm.exc import NoResultFound
+
 from db import DB
 from user import User
 
@@ -24,7 +26,7 @@ class Auth:
         try:
             self._db.find_user_by(email=email)
             raise ValueError(f'User {email} already exists')
-        except:
+        except NoResultFound:
                 hash_pwd = _hash_password(password)
 
         return self._db.add_user(email, hash_pwd)
