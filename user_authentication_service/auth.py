@@ -32,7 +32,7 @@ class Auth:
         """Create method for valid login"""
         user = self._db.find_user_by(email=email)
         if user:
-            if bcrypt.checkpw(user.hashed_password, _hash_password(password)):
+            if bcrypt.checkpw(user.hashed_password, password.encode('utf-8')):
                 return True
             else:
                 return False
