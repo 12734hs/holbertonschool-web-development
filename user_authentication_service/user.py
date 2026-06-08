@@ -5,6 +5,7 @@ from sqlalchemy.ext.declarative import declarative_base
 
 base = declarative_base()
 
+
 class User(base):
     """This class is about thebase user class in DB"""
     __tablename__ = 'users'
