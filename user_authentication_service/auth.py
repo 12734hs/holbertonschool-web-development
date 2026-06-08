@@ -78,6 +78,7 @@ class Auth:
             return None
 
     def get_reset_password_token(self, email):
+        """We use that method for get and provide reset token to user"""
         try:
             user = self._db.find_user_by(email=email)
             token = _generate_uuid()
@@ -87,12 +88,14 @@ class Auth:
             raise ValueError
 
     def update_password(self, reset_token, password):
+        """This method we use for change password in profile"""
         try:
             user = self._db.find_user_by(reset_token=reset_token)
         except NoResultFound:
             raise ValueError
 
         new_psw = _hash_password(password)
-        self._db.update_user(user.id, hashed_password=new_psw, reset_token=None)
+        self._db.update_user(user.id, hashed_password=new_psw,
+                             reset_token=None)
 
         return None
