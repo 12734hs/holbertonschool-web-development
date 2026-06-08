@@ -16,6 +16,7 @@ def main():
 
 @app.route('/users', methods=['POST'], strict_slashes=True)
 def users():
+    """THis is a route, which is using for create a new users"""
     email = request.form.get('email')
     password = request.form.get('password')
     try:
@@ -27,6 +28,7 @@ def users():
 
 @app.route('/sessions', methods=['POST'])
 def session():
+    """This is route which creates new session"""
     email = request.form.get('email')
     password = request.form.get('password')
     if not AUTH.valid_login(email=email, password=password):
@@ -41,6 +43,7 @@ def session():
 
 @app.route('/sessions', methods=['DELETE'])
 def logout():
+    """This is session which is using for logout of profile"""
     ss_id = request.cookies.get('session_id')
     user = AUTH.get_user_from_session_id(ss_id)
     if user is None:
@@ -51,6 +54,7 @@ def logout():
 
 @app.route('/profile')
 def profile():
+    """IDK what is it doing, honestly"""
     ss_id = request.cookies.get('session_id')
     user = AUTH.get_user_from_session_id(ss_id)
     if user is None:
@@ -60,6 +64,7 @@ def profile():
 
 @app.route('/reset_password', methods=['POST'])
 def get_reset_password_token():
+    """We use that for add the reset token for account"""
     email = request.form.get('email')
     try:
         reset_token = AUTH.get_reset_password_token(email)
@@ -70,6 +75,7 @@ def get_reset_password_token():
 
 @app.route('/reset_password', methods=['PUT'])
 def update_password():
+    """We use that route we change assword, to new one"""
     email = request.form.get('email')
     reset_token = request.form.get('reset_token')
     new_password = request.form.get('new_password')
