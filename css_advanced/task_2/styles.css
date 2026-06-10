@@ -129,7 +129,7 @@ section {
 
 section.hero {
   background-image: url("../assets/background.png");
-  background-size: 100% auto;
+  background-size: cover;
   background-position: center;
   display: flex;
   flex-direction: column;
